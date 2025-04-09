@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 // Classe MesDates pour la gestion des dates
 class MesDates
 {
@@ -24,8 +25,11 @@ class MesDates
     {
         echo $this->date;
     }
-}
 
-// Exemple d'utilisation de la classe (à déplacer dans un autre fichier si nécessaire)
-// $maDate = new MesDates('2025-04-09');
-// $maDate->afficherDate();
+    // Méthode pour obtenir la date de demain au format Y-m-d en JSON
+    public function getDateDemainEnJson(): string
+    {
+        $demain = (new \DateTime('tomorrow'))->format('Y-m-d');
+        return json_encode(['demain' => $demain]);
+    }
+}
