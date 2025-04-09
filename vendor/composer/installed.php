@@ -1,20 +1,20 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'corentinfr19/td7',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'a96cdb54be14892ef69e1e14e039f51c4a5085ff',
-        'type' => 'library',
+        'reference' => 'c571e7b6e158244533c9347d565e48f697e5edae',
+        'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
+        'corentinfr19/td7' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'a96cdb54be14892ef69e1e14e039f51c4a5085ff',
-            'type' => 'library',
+            'reference' => 'c571e7b6e158244533c9347d565e48f697e5edae',
+            'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
