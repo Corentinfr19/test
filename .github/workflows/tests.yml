@@ -1,4 +1,4 @@
-name: Run Tests
+name: Run Tests and Lint Code
 
 on:
   push:
@@ -11,26 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.3' # Ou votre version de PHP
-        extensions: json # Gardez vos extensions
+        php-version: '8.3'
+        extensions: json
 
     - name: Install Composer dependencies
-      run: composer install --no-interaction --prefer-dist --optimize-autoloader
+      run: composer install --no-interaction --prefer-dist
 
-    - name: Generate Composer Autoloader
-      run: composer dump-autoload -o
+    - name: Make PHP Code Sniffer executable
+      run: chmod +x vendor/bin/phpcs
 
-    # Ajoute ici l'étape pour le linting de code avec PHP CodeSniffer
     - name: Run PHP Code Sniffer
-      run: vendor/bin/phpcs --standard=PSR12
-
-    - name: Make PHPUnit executable
-      run: chmod +x vendor/bin/phpunit
+      run: vendor/bin/phpcs --standard=PSR12 src/  # Remplacer 'src/' par le répertoire ou fichier à analyser
 
     - name: Run PHPUnit tests
       run: vendor/bin/phpunit tests
