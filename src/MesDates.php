@@ -1,5 +1,6 @@
 <?php
 
+namespace App;
 // Classe MesDates pour la gestion des dates
 class MesDates
 {
@@ -25,6 +26,6 @@ class MesDates
     }
 }
 
-// Exemple d'utilisation de la classe
-$maDate = new MesDates('2025-04-09');
-$maDate->afficherDate();
+// Exemple d'utilisation de la classe (à déplacer dans un autre fichier si nécessaire)
+// $maDate = new MesDates('2025-04-09');
+// $maDate->afficherDate();
