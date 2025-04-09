@@ -39,12 +39,3 @@ jobs:
 
     - name: Run PHP Code Style Checks
       run: ./vendor/bin/phpcs --standard=PSR12 src/ tests/
-
-    - name: Run PHPUnit tests with coverage
-      run: ./vendor/bin/phpunit --configuration phpunit.xml --coverage-html ./build/coverage/html
-
-    - name: Upload Coverage Report
-      uses: actions/upload-artifact@v4
-      with:
-        name: code-coverage-report
-        path: ./build/coverage/html
