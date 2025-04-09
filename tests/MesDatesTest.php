@@ -8,6 +8,7 @@ class MesDatesTest extends TestCase
     {
         // Simulez l'appel à la fonction qui renvoie la date de demain en JSON
         $resultat = $this->obtenirDateDemainEnJson();
+                // Simulez l'appel à la fonction qui renvoie la date de demain en JSON
 
         // Assurez-vous que le résultat est une chaîne de caractères (JSON)
         $this->assertIsString($resultat);
