@@ -1,4 +1,4 @@
-name: Run Tests and Lint Code
+name: Lint and Test Code
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Setup PHP
@@ -21,13 +21,16 @@ jobs:
         extensions: json
 
     - name: Install Composer dependencies
-      run: composer install --no-interaction --prefer-dist
+      run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
-    - name: Make PHP Code Sniffer executable
-      run: chmod +x vendor/bin/phpcs
+    - name: Install PHP Code Sniffer
+      run: composer require --dev squizlabs/php_codesniffer
 
     - name: Run PHP Code Sniffer
-      run: vendor/bin/phpcs --standard=PSR12 src/  # Remplacer 'src/' par le répertoire ou fichier à analyser
+      run: vendor/bin/phpcs --standard=PSR12 src/
+
+    - name: Fix PHP Code Sniffer issues
+      run: vendor/bin/phpcbf --standard=PSR12 src/
 
     - name: Run PHPUnit tests
       run: vendor/bin/phpunit tests
