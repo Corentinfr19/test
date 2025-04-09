@@ -1,14 +1,17 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use App\MesDates; // Importez la classe que vous voulez tester
 
 class MesDatesTest extends TestCase
 {
     public function testDateDemainRetourneJsonEtDateCorrecte()
     {
-        // Simulez l'appel à la fonction qui renvoie la date de demain en JSON
-        $resultat = $this->obtenirDateDemainEnJson();
-                // Simulez l'appel à la fonction qui renvoie la date de demain en JSON
+        // Instanciez la classe que vous voulez tester
+        $mesDates = new MesDates();
+
+        // Appelez la méthode que vous voulez tester
+        $resultat = $mesDates->getDateDemainEnJson();
 
         // Assurez-vous que le résultat est une chaîne de caractères (JSON)
         $this->assertIsString($resultat);
@@ -20,17 +23,10 @@ class MesDatesTest extends TestCase
         $this->assertIsArray($data);
         $this->assertArrayHasKey('demain', $data);
 
-        // Obtenez la date de demain attendue au format YYYY-MM-DD
+        // Obtenez la date de demain attendue au format Y-m-d
         $demainAttendu = (new DateTime('tomorrow'))->format('Y-m-d');
 
         // Assurez-vous que la valeur de 'demain' dans le JSON correspond à la date de demain attendue
         $this->assertEquals($demainAttendu, $data['demain']);
-    }
-
-    // Fonction simulée (vous devrez remplacer ceci par votre véritable fonction)
-    private function obtenirDateDemainEnJson(): string
-    {
-        $demain = (new DateTime('tomorrow'))->format('Y-m-d');
-        return json_encode(['demain' => $demain]);
     }
 }
