@@ -1,0 +1,14 @@
+* text=auto
+*.php text
+*.twig text
+*.js text
+*.css text
+*.scss text
+*.html text
+*.xml text
+*.json text
+*.lock text
+
+# Handle line endings for specific files if needed
+# composer.lock text eol=lf
+# vendor/* binary
