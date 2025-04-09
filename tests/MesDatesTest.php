@@ -1,7 +1,11 @@
 <?php
 
+namespace Tests;
+
 use PHPUnit\Framework\TestCase;
-use App\MesDates; // Importez la classe que vous voulez tester
+use App\MesDates;
+
+// Importez la classe que vous voulez tester
 
 class MesDatesTest extends TestCase
 {
