@@ -8,14 +8,14 @@
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
-    <coverage includeUncoveredFiles="true" path="./src">
+    <coverage includeUncoveredFiles="true">
         <include>
             <directory suffix=".php">./src</directory>
         </include>
         <report>
-    <clover outputFile="./build/coverage/clover.xml"/>
-    <html outputDirectory="./build/coverage/html"/>
-    <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="true"/>
-</report>
+            <clover outputFile="./build/coverage/clover.xml"/>
+            <html outputDirectory="./build/coverage/html"/>
+            <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="true"/>
+        </report>
     </coverage>
 </phpunit>
