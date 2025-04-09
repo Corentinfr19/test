@@ -25,6 +25,10 @@ jobs:
     - name: Generate Composer Autoloader
       run: composer dump-autoload -o
 
+    # Ajoute ici l'étape pour le linting de code avec PHP CodeSniffer
+    - name: Run PHP Code Sniffer
+      run: vendor/bin/phpcs --standard=PSR12
+
     - name: Make PHPUnit executable
       run: chmod +x vendor/bin/phpunit
 
