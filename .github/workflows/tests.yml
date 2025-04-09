@@ -2,9 +2,9 @@ name: Run Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ] # Modifier "main" par "master"
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ] # Modifier "main" par "master"
 
 jobs:
   build:
@@ -16,12 +16,11 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.1' # Remplacez par la version de PHP de votre projet
-        extensions: json # Ajoutez d'autres extensions PHP nécessaires à votre projet et vos tests
+        php-version: '8.1' # Gardez votre version de PHP
+        extensions: json # Gardez vos extensions
 
     - name: Install Composer dependencies
       run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
     - name: Run PHPUnit tests
       run: vendor/bin/phpunit tests
-      #Hugo le gros gay 
