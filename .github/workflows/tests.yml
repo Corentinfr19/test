@@ -31,6 +31,9 @@ jobs:
     - name: Make PHPCBF executable
       run: chmod +x vendor/bin/phpcbf
 
+    - name: Make PHPCS executable
+      run: chmod +x vendor/bin/phpcs
+
     - name: Fix PHP Code Style Issues
       run: ./vendor/bin/phpcbf --standard=PSR12 src/ tests/ || true
 
